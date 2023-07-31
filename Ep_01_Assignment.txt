@@ -1,0 +1,46 @@
+Episode 1 : INCEPTION
+
+1.What is Emmet?
+ Emmet is a web development tool that allows developers to write HTML and CSS code more efficiently and quickly. It provides a shorthand syntax for generating code snippets, making it easier to create complex structures with just a few keystrokes.
+ Emmet allows you to write abbreviated syntax for HTML and CSS, which expands into full code snippets. For example, typing ul>li*3 and then triggering the Emmet expansion will generate an unordered list with three list items.
+ With Emmet, you can create deeply nested HTML structures easily by using the > and + symbols. This makes it convenient for building complex layouts with minimal effort.
+ Emmet supports simple math expressions within the code. For eg., you can use ul>li.item-$*3 to generate a list with classes "item-1", "item-2", and "item-3."
+ typing m10 and triggering the expansion will generate margin: 10px;.
+ Developers can define their custom Emmet snippets, which can be particularly helpful for frequently used code patterns.
+
+2.Difference between a Library and Framework ?
+ Library: A library is a collection of pre-written  code that developers can use to perform specific  tasks. It gives developers more control over their  code and is used on an as-needed basis. it takes minimum efforts to put it onto our code
+
+ Framework: A framework is a complete software  package that provides a structured environment for  building applications. It dictates the application's architecture and flow, and developers need to follow  its conventions.
+
+3.What is CDN? Why do we use it?
+ CDN (Content Delivery Network) is a network of servers distributed worldwide that store and deliver web content, such as images, videos, and scripts, to users from the nearest server location. It improves website performance, reduces load times, and enhances user experience by serving content faster and more efficiently.
+
+4.Why React is known as React?
+ React is known as "React" because it efficiently reacts to changes in data by automatically updating the user interface to reflect those changes. The name perfectly captures the library's core concept and philosophy.
+
+5.What is cross-origin script tag?
+ The crossorigin attribute sets the mode of the request to an HTTP CORS Request.
+ Web pages often make requests to load resources on other servers. 
+ A cross-origin request is a request for a resource (e.g. style sheets, iframes, images, fonts, or scripts) from another domain.
+ {CORS(Cross origin resource sharing) Is an HTTP header based mechanism that allows server to indicate any cross origin(Domain, scheme or port)Other than from which Browser shuld permit loading resources}
+ =>cross-origin attribute provide support for CORS If we serve react from a CDN , keep Cross origin attribute set:
+  <script Crossorigin src=" " ></script>
+  This indicates that the script should be loaded from a different origin
+ 
+6.What is the difference between react and ReactDOM ?
+ React is responsible for the core functionalities of building user interfaces.
+ ReactDOM is a package specifically focused on rendering React components into the DOM for web applications.
+
+
+7.What is the difference between react.development.js and react.production.js files via CDN ?
+
+ react.development.js and react.production.js are two different versions of the React library. 
+ react.development.js is meant for development purposes and contains additional debugging information, warnings, and error messages to help developers identify and address issues during the development process.
+ On the other hand, react.production.js is optimized for production environments. It is minified, removing any development-specific code, and is significantly smaller in size to improve performance. 
+ Using react.production.js in production ensures faster load times and better efficiency for end-users without the overhead of development-specific features.
+
+8.What are async and defer?
+ async: Loads and executes the script asynchronously while parsing the HTML. Execution occurs as soon as the script is downloaded, regardless of the page's load state.
+ defer: Loads the script asynchronously while parsing the HTML but defers execution until after the entire HTML document is parsed. Maintains script execution order.
+

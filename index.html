@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Namaste React</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- <h1>Hello World from html</h1> -->
+    <!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello world from javaSript";
+        const root = document.getElementById('root');
+        root.appendChild(heading);
+    </script> -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <!-- <script>
+      const heading = React.createElement("h1", {id:"title"}, "Hello world from React !");
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+
+      root.render(heading); 
+    </script>-->
+
+    <!-- <div id="parent">
+        <div id="child_1">
+            <h1>I am creating Neasted React Elements</h1>
+            <h2>This is h2 tag from child 1</h2>
+        </div>
+        <div id="child_2">
+            <h1>This is another child</h1>
+            <h2>This is h2 tag from child 2</h2>
+        </div>
+    </div> -->
+
+    <script>
+        const parent = React.createElement("div",{id:"parent"},[
+            React.createElement("div",{id:"child_1"},[
+                React.createElement("h1",{},"I am creating Neasted React Elements"),
+                React.createElement("h2",{},"This is h2 tag from child 1"),
+            ]),
+            React.createElement("div",{id:"child_2"},[
+                React.createElement("h1",{},"This is another child"),
+                React.createElement("h2",{},"This is h2 tag from child 2"),
+            ]),
+        ]);
+        const root = ReactDOM.createRoot (document.getElementById("root"));
+        root.render(parent);
+    </script>    
+  </body>
+</html>
