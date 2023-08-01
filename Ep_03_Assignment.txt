@@ -1,0 +1,36 @@
+1. what is JSX ?
+
+ JSX is a HTML or XML like structure
+ It is a syntax extension used in React.js that allows developers to write HTML-like code within JavaScript to create and manage user interface components more easily.
+ It simplifies React development by providing a concise and readable way to describe the structure of UI elements.
+ JSX code is transpiled into regular JavaScript, allowing browsers to understand and render the user interface correctly.
+
+2. SuperPowers of JSX ?
+ - HTML-like syntax for writing UI code.
+ - Component composition for building reusable and modular components.
+ - Embedding JavaScript expressions for dynamic content rendering.
+ - Declarative approach for describing UI based on state.
+ - Virtual DOM for efficient updates and improved performance.
+ - IDE support for enhanced developer productivity.
+ - Transpilation for compatibility with browsers 
+ - support for modern JavaScript features.
+
+3. Role of type Attribute in script tag? what options can i use there?
+
+ The type attribute in the <script> tag is used to specify the MIME type of the script content. 
+ Its role is to inform the browser about the type of script being loaded, allowing the browser to interpret and execute the script correctly.
+ 
+ The most common options are :
+ 'type="text/javascript"' (default): For regular JavaScript code.
+
+ 'type="module"': For JavaScript modules using import and export statements.
+
+ 'type="text/plain"': To prevent script execution (used for code examples or documentation). 
+
+4.{TittleComponent} vs {<TittleComponent/>} vs {<TittleComponent></TittleComponent>} in JSX
+
+ {TittleComponent}: Renders the variable TittleComponent as a React component. This is used when the component is stored in a variable.
+
+ {<TittleComponent/>}: Renders the TittleComponent directly as a React component. This is the standard way to render a component in JSX.
+
+ {<TittleComponent></TittleComponent>}: Also renders the TittleComponent directly as a React component. 
