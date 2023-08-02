@@ -28,5 +28,19 @@ Namaste React 🚀
 - Babel and Parcel role in JSX
 - Functional Component (Component Composion)
 
-
+# Talk is cheap , Show me the code
+Header
+ - logo
+ - Nav items
+Body
+ -search
+ -RestaurantContainer
+    -RestaurantCard
+       . img
+       . Name of Restaurant , star rating ,cuisine , delivery time
+Footer
+ -CopyRight
+ -Links
+ -Address
+ -Contact
 
