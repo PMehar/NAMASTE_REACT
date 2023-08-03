@@ -44,3 +44,19 @@ Footer
  -Address
  -Contact
 
+# Lets get hooked
+Two types of Export/Import
+  - default export/import 
+    =>export default Component;
+    =>import Component from "path";
+  - Named export/import
+    =>export const Component =()=>{...};
+    =>import {Component} from "path";
+
+- how to handle Onclick event
+
+# React Hooks (normal JS utility functions)
+  -useState() -superPowerful state variable in react
+      maintain the state of your component its scope is inside that component
+      whenever state variable updates react will re-render the components
+  -useEffect()
