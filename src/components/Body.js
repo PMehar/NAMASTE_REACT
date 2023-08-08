@@ -1,41 +1,26 @@
 import RestaurantCard from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import Shimmer from "./Shimmer";
-import { SWIGGY_API_URL } from "../utils/config";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
+
 
 const Body = () => {
   //Local state Variable
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
-
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-
+  const [listOfRestaurants, filteredRestaurant , setFilteredRestaurant] = useRestaurantList();
+ 
   const [searchText, setSearchText] = useState("");
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const onlineStatus = useOnlineStatus();
 
-  const fetchData = async () => {
-    //handle error in API call (0,1,4)
-    try {
-      const data = await fetch(SWIGGY_API_URL);
-
-      const json = await data.json();
-
-      setListOfRestaurants(
-        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-      setFilteredRestaurant(
-        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-    } catch {
-      console.log("Something went wrong!!");
-    }
+  if(onlineStatus === false){
+    return(
+      <h1>
+        🔴 Looks like you are offline!! Please check your internet connection 
+      </h1>
+    )
   };
-
   //if (!listOfRestaurants) return null; //early return(component not rendered)
   //Conditional Rendering
   return listOfRestaurants?.length === 0 ? (
