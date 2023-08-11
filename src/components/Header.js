@@ -1,14 +1,19 @@
 import { LOGO_URL } from "../utils/config";
 import { CART_LOGO_URL } from "../utils/config";
-import { useState } from "react";
+import { useState ,useContext} from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/userContext";
+
 
 const Header = () => {
   
   const [btnName, setBtnName] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
+
+  const {loggedInUser  } = useContext(UserContext);
+  console.log(loggedInUser);
   return (
     <div className="flex justify-between bg-white-100 shadow-lg border border-gray-200 mb-2  border-spacing-2"> 
       <div className="logo-container">
@@ -39,6 +44,7 @@ const Header = () => {
             {btnName}
           </button>
           </li>
+          <li className="px-4 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

@@ -1,26 +1,30 @@
 import RestaurantCard from "./RestaurantCard";
-import {useState } from "react";
+import { useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantList from "../utils/useRestaurantList";
-
+import UserContext from "../utils/userContext";
 
 const Body = () => {
   //Local state Variable
-  const [listOfRestaurants, filteredRestaurant , setFilteredRestaurant] = useRestaurantList();
- 
+  const [listOfRestaurants, filteredRestaurant, setFilteredRestaurant] =
+    useRestaurantList();
+
   const [searchText, setSearchText] = useState("");
 
   const onlineStatus = useOnlineStatus();
 
-  if(onlineStatus === false){
-    return(
+  if (onlineStatus === false) {
+    return (
       <h1>
-        🔴 Looks like you are offline!! Please check your internet connection 
+        🔴 Looks like you are offline!! Please check your internet connection
       </h1>
-    )
-  };
+    );
+  }
+
+  const {loggedInUser , setUserName} = useContext(UserContext);
+
   //if (!listOfRestaurants) return null; //early return(component not rendered)
   //Conditional Rendering
   return listOfRestaurants?.length === 0 ? (
@@ -31,13 +35,15 @@ const Body = () => {
         <div className="search my-4 py-2 flex">
           <input
             type="text"
-            className=" h-10 px-28 m-4 bg-slate-100 rounded-md placeholder-gray-500" placeholder="Search for Restaurants..." 
+            className=" h-10 px-28 m-4 bg-slate-100 rounded-md placeholder-gray-500"
+            placeholder="Search for Restaurants..."
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <button className="px-4 py-2 bg-green-100 my-4 rounded-lg"
+          <button
+            className="px-4 py-2 bg-green-100 my-4 rounded-lg"
             onClick={() => {
               //Filter the restaurant cards and update the UI
               //searchText
@@ -53,23 +59,34 @@ const Body = () => {
           </button>
         </div>
         <div className="filter m-4 p-4 flex">
-        <button
-          className="px-4 py-2 bg-gray-100 rounded-lg"
-          onClick={() => {
-            //filter logic
-            const filteredList = listOfRestaurants.filter(
-              (res) => res?.info?.avgRating > 4
-            );
-            setFilteredRestaurant(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+          <button
+            className="px-4 py-2 bg-gray-100 rounded-lg"
+            onClick={() => {
+              //filter logic
+              const filteredList = listOfRestaurants.filter(
+                (res) => res?.info?.avgRating > 4
+              );
+              setFilteredRestaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+        <div className="filter m-4 p-4 flex selection:">
+          <label className="p-2">Username : </label>
+          <input
+            className="border border-gray-200 p-1 rounded-lg"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          ></input>
         </div>
       </div>
       <div className="restaurant-container flex flex-wrap justify-center">
         {filteredRestaurant?.map((restaurant) => (
-          <Link key={restaurant?.info?.id} to= {"/restaurants/"+ restaurant?.info?.id}>
+          <Link
+            key={restaurant?.info?.id}
+            to={"/restaurants/" + restaurant?.info?.id}
+          >
             <RestaurantCard resData={restaurant} />
           </Link>
         ))}

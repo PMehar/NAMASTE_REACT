@@ -10,16 +10,16 @@ class UserClass extends React.Component {
           location:"Default",
         },
       };
-    console.log(this.props.name+"Child Constructor");
+    //console.log(this.props.name+"Child Constructor");
   }
 
   async componentDidMount(){
 
     this.timer = setInterval(()=>{
-        console.log("NAMASTE REACT OP");
+        //console.log("NAMASTE REACT OP");
     },1000);
 
-    console.log(this.props.name+"Child Component Did Mount");
+    //console.log(this.props.name+"Child Component Did Mount");
      //API call 
     // const data = await fetch("https://api.github.com/users/akshaymarch7");
     // const json = await data.json();
@@ -31,18 +31,18 @@ class UserClass extends React.Component {
   }
 
   componentDidUpdate(){
-    console.log("Component Did Update ");
+    //console.log("Component Did Update ");
   }
 
   componentWillUnmount(){
     clearInterval(this.timer)
-    console.log("Component Will Unmount");
+    //console.log("Component Will Unmount");
   }
 
   render() {
     const { name, location , avatar_url } = this.state.userInfo;
 
-    console.log(this.props.name+"Child Render");
+    //console.log(this.props.name+"Child Render");
     return (
       <div className="user-card">
         <h2>Name : {name}</h2>
